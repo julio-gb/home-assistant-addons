@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## 0.0.26
+
+* Extend config schema to include MQTT configuration options
+* Update Dockerfile to use ruby-json-parser
+
 ## 0.0.25
 
 Emit events when registers are updated in KCTR module.
