@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## 0.0.28
+
+* Fix NoMethodError when entities are not found in configured devices - now shows warning and continues
+* Add null checks in busing.rb methods to prevent crashes with missing entities
+
 ## 0.0.27
 
 * Fix MQTT configuration priority - custom mqtt_config now takes precedence over environment variables

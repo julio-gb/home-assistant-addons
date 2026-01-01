@@ -71,6 +71,10 @@ end
 def full_resync(busing_entities, busing:, mqtt:, logger:, mqtt_topic:, bridge_enabled: true)
   busing_entities.each do |entity|
     state = busing.output_state_by(name: entity)
+    if state.nil?
+      logger.warn("Entity '#{entity}' not found in any configured device")
+      next
+    end
     publish_entity_state(mqtt, logger, entity, state, mqtt_topic: mqtt_topic) if bridge_enabled
     logger.info("Busing #{entity} are '#{state}'")  
   end
