@@ -22,7 +22,7 @@ devices_installed = options.fetch("busing_devices_installed", 12)
 forward_all_events = options.fetch("forward_all_events", false)
 full_resync_every = options.fetch("full_resync_every", 60)# seconds
 
-mqtt_options = ENV.fetch("MQTT_HOST", false) ? ENV : options.fetch("mqtt_config")
+mqtt_options = options.fetch("mqtt_config", {}).empty? ? ENV : options.fetch("mqtt_config")
 
 mqtt_host = mqtt_options.fetch("MQTT_HOST")
 mqtt_port = mqtt_options.fetch("MQTT_PORT")

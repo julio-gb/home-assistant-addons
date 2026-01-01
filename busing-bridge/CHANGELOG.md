@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.0.27
+
+* Fix MQTT configuration priority - custom mqtt_config now takes precedence over environment variables
+
 ## 0.0.26
 
 * Extend config schema to include MQTT configuration options
