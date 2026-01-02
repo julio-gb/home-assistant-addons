@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## 0.0.32
+
+* Remove 'inputs' field from busing_device_configuration schema - only 'outputs' and 'registers' are supported
+
+## 0.0.31
+
+* Fix schema syntax for optional 'inputs' and 'registers' fields in busing_device_configuration
+
 ## 0.0.30
 
 * Make 'registers' and 'inputs' fields optional in busing_device_configuration schema
