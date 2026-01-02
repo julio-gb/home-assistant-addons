@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.0.29
+
+* Add support for 'registers' field in busing_device_configuration schema
+
 ## 0.0.28
 
 * Fix NoMethodError when entities are not found in configured devices - now shows warning and continues
