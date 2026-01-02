@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 0.0.30
+
+* Make 'registers' and 'inputs' fields optional in busing_device_configuration schema
+
 ## 0.0.29
 
 * Add support for 'registers' field in busing_device_configuration schema
