@@ -116,15 +116,30 @@ class Busing
   end
 
   def output_state_by(name:)
+    # Buscar en outputs normales
     device = devices.find { |device| device[:controller].output_names.include?(name) }
+    return device[:controller].output_state_by(name: name) if device
+    
+    # Buscar en registros
+    device = devices.find do |device| 
+      device[:controller].respond_to?(:registers_config) && 
+      device[:controller].registers_config.any? { |reg| reg["entity_name"] == name }
+    end
     return nil if device.nil?
-    device[:controller].output_state_by(name: name)
+    
+    # Para registros, devolver estado por defecto (se actualizará cuando lleguen eventos)
+    "OFF"
   end
 
   def set_state_by(name:, value:)
+    # Buscar en outputs normales
     device = devices.find { |device| device[:controller].output_names.include?(name) }
-    return nil if device.nil?
-    device[:controller].set_state_by(name: name, value: value)
+    return device[:controller].set_state_by(name: name, value: value) if device
+    
+    # Los registros normalmente son de solo lectura (sensores)
+    # pero podríamos agregar soporte si es necesario
+    logger.warn("Cannot set state for register entity '#{name}' - registers are typically read-only")
+    nil
   end
 
   def input_state_by(name:)

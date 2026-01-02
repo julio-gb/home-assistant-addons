@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## 0.0.33
+
+* Add support for register entities in output_state_by and set_state_by methods
+* Register entities now appear in MQTT with default "OFF" state until events are received
+
 ## 0.0.32
 
 * Remove 'inputs' field from busing_device_configuration schema - only 'outputs' and 'registers' are supported
